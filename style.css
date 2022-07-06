@@ -5,6 +5,14 @@ h4,
 p,
 li {
   font-family: sans-serif;
+  color: #444;
+}
+
+/* the color of h1 h2 h3 get overwritten here */
+h1,
+h2,
+h3 {
+  color: #1098ad;
 }
 
 h1 {
@@ -59,4 +67,65 @@ li {
 
 .related {
   list-style: none;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+}
+
+aside {
+  background-color: #f7f7f7;
+  border-top: #1098ad 5px solid;
+  border-bottom: #1098ad 5px solid;
+}
+
+/*----------------------PSEUDO CLASS example ----------------------------------------*/
+
+li:first-child {
+  font-weight: bold;
+}
+
+li:last-child {
+  font-style: italic;
+}
+
+/*Misconception! This won't work because there is no first child which is a <p> in article, the first child is <header> here.*/
+article p:first-child {
+  color: red;
+}
+
+/*This work because there is a p which is also the last child under article if the last child is something else it won't work*/
+article p:last-child {
+  color: red;
+}
+
+li:nth-child(3) {
+  color: red;
+}
+/*
+li:nth-child(odd)
+{color:red}; */
+
+/*--------------------Styling link -------------------------------------------------*/
+/* Good practice is targeting link with pseudo class, not just <a> */
+/* Always do it in LVHA order = link > visited > hover > active */
+
+a:link {
+  color: #1098ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1098ad;
+}
+
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline dotted orangered;
+}
+
+a:active {
+  background-color: black;
+  font-style: italic;
 }
