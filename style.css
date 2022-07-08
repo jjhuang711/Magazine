@@ -1,13 +1,57 @@
-h1,
-h2,
-h3,
-h4,
-p,
-li {
-  font-family: sans-serif;
-  color: #444;
+* {
+  /*universal lowest priority default setting goes here (to ease design)*/
+  margin: 0;
+  padding: 0;
 }
 
+/*-------------------bigger chunk section settings-----------------*/
+
+body {
+  /*property to get inherited*/
+  font-family: sans-serif;
+  color: #444;
+
+  /*property for body alone*/
+  border-top: #1098ad solid 10px;
+}
+
+/*Trick: centering the whole website*/
+.container {
+  width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+  padding: 20px 40px;
+  /*always use either margin-bottom or margin-top only for spacing
+  between elements, stick to 1*/
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+nav {
+  font-size: 18px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+aside {
+  background-color: #f7f7f7;
+  border-top: #1098ad 5px solid;
+  border-bottom: #1098ad 5px solid;
+  padding: 50px 0;
+  width: 500px;
+}
+
+/*---------------------small elements--------------------------------------*/
 /* the color of h1 h2 h3 get overwritten here */
 h1,
 h2,
@@ -23,10 +67,14 @@ h1 {
 
 h2 {
   font-size: 40px;
+  margin-bottom: 30px;
+  position: relative;
 }
 
 h3 {
   font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 h4 {
@@ -38,10 +86,19 @@ h4 {
 p {
   font-size: 22px;
   line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/*This one is important! Default setting will remove the bullets so need to set margin-left again*/
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 li {
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 /* Use 'ctrl' + '/' to quickly make a selection comments*/
@@ -69,17 +126,20 @@ li {
   list-style: none;
 }
 
-.main-header {
-  background-color: #f7f7f7;
+.like-button {
+  padding: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
 }
 
-aside {
-  background-color: #f7f7f7;
-  border-top: #1098ad 5px solid;
-  border-bottom: #1098ad 5px solid;
+.post-img {
+  width: 100%;
+  height: auto;
 }
 
-/*----------------------PSEUDO CLASS example ----------------------------------------*/
+/*----------------------PSEUDO CLASS and element example ----------------------------------------*/
 
 li:first-child {
   font-weight: bold;
@@ -87,6 +147,7 @@ li:first-child {
 
 li:last-child {
   font-style: italic;
+  margin-bottom: 0;
 }
 
 /*Misconception! This won't work because there is no first child which is a <p> in article, the first child is <header> here.*/
@@ -96,12 +157,13 @@ article p:first-child {
 
 /*This work because there is a p which is also the last child under article if the last child is something else it won't work*/
 article p:last-child {
-  color: red;
+  color: orangered;
 }
 
-li:nth-child(3) {
+/* li:nth-child(3) {
   color: red;
-}
+} */
+
 /*
 li:nth-child(odd)
 {color:red}; */
@@ -128,4 +190,41 @@ a:hover {
 a:active {
   background-color: black;
   font-style: italic;
+}
+
+/*Change display to make vertical margin application possible*/
+nav a:link {
+  margin-top: 10px;
+  margin-right: 30px;
+  display: inline-block;
+}
+
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+/*------------------Pseudo elements----------*/
+
+h1::first-letter {
+  font-style: normal;
+  font-size: 36px;
+}
+
+/*select first line of paragraph after h3 and turn it red*/
+h3 + p::first-line {
+  color: red;
+}
+
+/*particularly good to create small element-like icon without writing new html codes*/
+h2::after {
+  content: "TOP";
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  background-color: yellow;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  right: -25px;
+  top: -15px;
 }
