@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexbox</title>
+  <style>
+    .el--1 {
+      background-color: blueviolet;
+    }
+
+    .el--2 {
+      background-color: orangered;
+    }
+
+    .el--3 {
+      background-color: green;
+      height: 150px;
+    }
+
+    .el--4 {
+      background-color: goldenrod;
+    }
+
+    .el--5 {
+      background-color: palevioletred;
+    }
+
+    .el--6 {
+      background-color: steelblue;
+    }
+
+    .el--7 {
+      background-color: yellow;
+    }
+
+    .el--8 {
+      background-color: crimson;
+    }
+
+    .container {
+      /* STARTER */
+      font-family: sans-serif;
+      background-color: #ddd;
+      font-size: 30px;
+      margin: 40px;
+
+      /* FLEXBOX */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /*creating gap between element without using margin*/
+      gap: 10px
+    }
+
+
+    .el {
+      /* Defaults: 
+      flex-grow:0;
+      flex-shrink:1;
+      flex-basis:auto; */
+
+      /*flex shorthand = grow shrink basis*/
+      /*flex-grow can have different value for every individual flex items, depends on the ration of extra available container space to take*/
+      /* flex-grow:1; */
+      flex: 1;
+
+      /*flex basis give suggestion to grow to 200px, flex-shrink will shrink to fit*/
+      /* flex-basis: 200px, flex-shrink: 0*/
+      /* flex: 0 0 200px; */
+
+    }
+
+
+    /*changing order of the element, default all is 0, to the left is any negative number, to the right is any positive number */
+    .el--8 {
+      order: -5;
+    }
+
+    .el--7 {
+      order: -6;
+      /*align-self is align-items but for individual flex item*/
+      /*stretch to same height as the highest element in the flex container*/
+      align-self: stretch;
+    }
+
+    .el--1 {
+      order: 5;
+    }
+
+    .el--3 {
+      order: 7;
+    }
+
+    .el--6 {
+      order: 6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="el el--1">HTML</div>
+    <div class="el el--2">and</div>
+    <div class="el el--3">CSS</div>
+    <div class="el el--4">are</div>
+    <div class="el el--5">amazing</div>
+    <div class="el el--6">languages</div>
+    <div class="el el--7">to</div>
+    <div class="el el--8">learn</div>
+  </div>
+</body>
+
+</html>
